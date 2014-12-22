@@ -171,6 +171,8 @@ class BaseManager(object):
         listing responses the same way, so overriding this method allows
         subclasses to handle extraction for those outliers.
         """
+        if self.plural_response_key is None:
+            return resp_body
         if key:
             data = resp_body.get(key)
         else:
